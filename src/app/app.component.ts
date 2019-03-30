@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { of, throwError } from 'rxjs';
-import { tap, map, finalize } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { tap, map, finalize, startWith } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
@@ -17,7 +17,8 @@ export class AppComponent implements OnInit {
     // this.tapTesting();
     // this.mapTesting();
     // this.finalizeTesting();
-    this.finalizeTestingWithHttp();
+    // this.finalizeTestingWithHttp();
+    this.startWithTesting();
   }
 
   /**
@@ -74,5 +75,12 @@ export class AppComponent implements OnInit {
 
   private finalizeHelper(message) {
     console.log(message);
+  }
+
+
+  public startWithTesting() {
+    of(1, 2, 3, 4, 5).pipe(
+      startWith('ola')
+    ).subscribe((data) => console.log(data));
   }
 }
