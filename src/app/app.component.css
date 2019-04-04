@@ -1,0 +1,20 @@
+ul {
+    margin: 10%;
+}
+
+li {
+    border: 2px solid black;
+    margin: 2px;
+    background-color: pink;
+    text-align: center;
+    cursor: pointer;
+}
+
+.active {
+    background-color: lightgreen;
+}
+
+.content {
+    border: 2px solid red;
+    padding: 50px;
+}

@@ -1,0 +1,11 @@
+<span class="randomElement">I am random</span>
+<ul>
+    <li routerLink="/link1" [queryParams]="{'query1':'mohit'}" [fragment]="'frag1'" [preserveFragment]="false"
+        routerLinkActive="active" queryParamsHandling="merge">Link 1 Component</li>
+
+    <li routerLink="/link2" routerLinkActive="/link2">Link 2 Component</li>
+</ul>
+<router-outlet></router-outlet>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
