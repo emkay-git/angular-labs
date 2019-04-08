@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
-import { tap, map, finalize, startWith } from 'rxjs/operators';
+import { of, interval } from 'rxjs';
+import { tap, map, finalize, startWith, mergeMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
     // this.mapTesting();
     // this.finalizeTesting();
     // this.finalizeTestingWithHttp();
-    this.startWithTesting();
+    // this.startWithTesting();
+    this.mergeMapTesting();
   }
 
   /**
@@ -83,4 +84,28 @@ export class AppComponent implements OnInit {
       startWith('ola')
     ).subscribe((data) => console.log(data));
   }
+
+  public mergeMapTesting() {
+    const timerObservable$ = interval(1000);
+
+    // of(timerObservable$, timerObservable$, timerObservable$)
+    //   .pipe(
+    //     map((data) => {
+    //       data.subscribe((data) => { console.log(data); })
+    //     }
+    //     )).subscribe(() => { });
+
+    // same code with mergeMap
+    const hello$ = val => of(`${val} World!`);
+    // timerObservable$
+    //   .pipe(
+    //     mergeMap((val) => hello$(val))
+    //   ).subscribe(data => console.log(data));
+
+    timerObservable$.pipe(
+      map(data => hello$(data))
+    ).subscribe(data => console.log(data));
+  }
+
 }
+
