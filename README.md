@@ -13,5 +13,5 @@ Each Lab will be a seperate branch on git. To access a Lab, you need to switch t
 
 ### Lab 2 - Playing with rxjs operators and observables
 * Branch name - lab2
-* Details - In this lab, worked with tap, finally, map, of, startWith
+* Details - In this lab, worked with tap, finally, map, of, startWith, mergeMap and difference with map.
 
