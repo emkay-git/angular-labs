@@ -14,4 +14,10 @@ Each Lab will be a seperate branch on git. To access a Lab, you need to switch t
 ### Lab 2 - Playing with rxjs operators and observables
 * Branch name - lab2
 * Details - In this lab, worked with tap, finally, map, of, startWith, mergeMap and difference with map.
-* Compared mergeMap, switchMap and concatMap
+   * Compared mergeMap, switchMap and concatMap
+
+### Lab 4 - Leaking components demo and how to prevent leak
+* Branch name - lab4
+* In this lab, created a leaking component
+  Prevent the leak through unsubscribe, take(1), and takeUntil operators.
+
