@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of, interval } from 'rxjs';
-import { tap, map, finalize, startWith, mergeMap } from 'rxjs/operators';
+import { tap, map, finalize, startWith, mergeMap, delay, concatMap, takeWhile, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
@@ -19,7 +19,9 @@ export class AppComponent implements OnInit {
     // this.finalizeTesting();
     // this.finalizeTestingWithHttp();
     // this.startWithTesting();
-    this.mergeMapTesting();
+    // this.mergeMapTesting();
+    this.concatMapTesting();
+
   }
 
   /**
@@ -106,6 +108,30 @@ export class AppComponent implements OnInit {
       map(data => hello$(data))
     ).subscribe(data => console.log(data));
   }
+  
+
+  /**
+   * concatMap - waits for the first subscriber to complete and then subscribe to new one
+   * mergeMap - subscribe to all in the sequence
+   * switchMap - cancels the current subscription and subscribe to latest one.
+   */
+  public concatMapTesting() {
+    const temp$ = value => of(`${value} says Mohit`);
+
+    // interval(10000).pipe(
+    //   concatMap(val => temp$(val))
+    // ).subscribe(x => console.log(x));
+
+    const newInterval$ = val => interval(1000).pipe(
+      takeWhile(x => x < 5)
+    );
+
+    // newInterval$(4).subscribe(x => console.log(x, 4));
+    of(1, 2, 3, 4).pipe(
+      switchMap(x => newInterval$(x))
+    ).subscribe((val) => { console.log(val); });
+  }
+
 
 }
 
