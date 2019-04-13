@@ -4,20 +4,33 @@ Angular Labs will contain small angular projects which can include, testing out 
 
 Each Lab will be a seperate branch on git. To access a Lab, you need to switch to that branch using `git checkout <branch_name>.
 
-### Lab 1 - Logging, Caching in Angular using Interceptors
-* Branch name - lab1
-* Details - In this lab, 
-  * created Logging Interceptor, 
-  * created caching interceptor with different strategies. 
-  * Also saw how to convert `one and done` http observable to multi valued observable.
+### Lab 6 - Observables and Subjects in RxJS
 
-### Lab 2 - Playing with rxjs operators and observables
-* Branch name - lab2
-* Details - In this lab, worked with tap, finally, map, of, startWith, mergeMap and difference with map.
-   * Compared mergeMap, switchMap and concatMap
+#### Observables are Unicast.
+It means all the subscribers will have the independent execution of observable.
 
-### Lab 4 - Leaking components demo and how to prevent leak
-* Branch name - lab4
-* In this lab, created a leaking component
-  Prevent the leak through unsubscribe, take(1), and takeUntil operators.
 
+#### Subjects are multicast.
+It means observable execution are shared among multiple subscribers.
+
+When we call subscribe method on observable, it executes the next method for all observers subscribed to it independtly, when we call subscribe method on the subject, it registers that observer.
+
+
+Subject can act as both data consumer and data producer. Data producer is same as observable, except that it's multicast. Data consumer can be thought of taking an observable and converting them to unicast.
+
+Remember, observable doesn't have a next, error, complete method. It's observer which has these method.
+
+Observable is we can susbcribe to. It has subscribe method which is response for registering the observer. So subscribe method will take observer only.
+
+
+#### Pure Subject
+late subscribers — i.e. those that subscribe after an error or complete notification has occurred — receive the error or complete notification.
+
+
+#### Behaviour Subject 
+Every subscriber will always get the initial or the last value that the subject emits.
+
+#### Async Subject
+
+
+#### Replay Subject
