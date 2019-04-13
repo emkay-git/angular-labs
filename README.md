@@ -21,3 +21,11 @@ Each Lab will be a seperate branch on git. To access a Lab, you need to switch t
 * In this lab, created a leaking component
   Prevent the leak through unsubscribe, take(1), and takeUntil operators.
 
+### Lab 6 - Subjects and Observables
+* Branch name - lab6
+* In this labe, understood observer pattern, Observables and Subject.
+   * How they are different?
+   * Different types of subjects
+   * ReplaySubject, AsyncSubject, BehavourSubject and Subject.
+
+
