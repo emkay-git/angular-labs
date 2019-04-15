@@ -1,0 +1,11 @@
+<app-popup [body]="customBody" [showPopup]="this._popupService.openPopup"></app-popup>
+
+
+
+<div class="center-button">
+    <button (click)="this._popupService.openPopup = true" class="btn btn-primary">Open Modal!!</button>
+</div>
+
+<ng-template #customBody>
+    <span (click)="test()">I am the body....</span>
+</ng-template>
