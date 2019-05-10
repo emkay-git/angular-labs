@@ -1,0 +1,16 @@
+<button routerLink="/loader" class="btn btn-primary">
+    Go to Loader component
+</button>
+<button routerLink="/non-loader" class="btn btn-primary">
+    Go to Non Loader Component
+</button>
+
+<div class="box">
+    <router-outlet></router-outlet>
+</div>
+<hr>
+<div class="box-log">
+    <div *ngFor="let data of this._helperService.responseArray">
+        Name: {{data['name']}}, id: {{data['id']}}, time: {{data['time']}}
+    </div>
+</div>

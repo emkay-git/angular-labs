@@ -1,0 +1,18 @@
+button {
+    margin: 10px;
+}
+
+.box {
+    margin: 100px;
+    border: 10px solid black;
+    padding: 20px;
+    height: 200px;
+}
+
+.box-log {
+    overflow: auto;
+    border: 10px solid grey;
+    margin: 10px;
+    padding: 20px;
+    height: 500px;
+}
