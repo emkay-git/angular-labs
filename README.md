@@ -23,9 +23,15 @@ Each Lab will be a seperate branch on git. To access a Lab, you need to switch t
 
 ### Lab 6 - Subjects and Observables
 * Branch name - lab6
-* In this labe, understood observer pattern, Observables and Subject.
+* In this lab, understood observer pattern, Observables and Subject.
    * How they are different?
    * Different types of subjects
    * ReplaySubject, AsyncSubject, BehavourSubject and Subject.
+
+### Lab 8 - Polling an API
+* Branch name - lab8
+* In this lab, I will create a api endpoint polling mechanism.
+   * I wrote a blog for the same [here](https://medium.com/@mohitkumar_72140/rxjs-how-to-poll-an-api-be6f2ed3a755). 
+   * Code can be found in the branch [lab8](https://github.com/emkay-git/angular-labs/tree/lab8) and demo on  [stackblitz](https://stackblitz.com/github/emkay-git/angular-labs/tree/lab8?file=src%2Fapp%2Floader%2Floader.component.ts)
 
 
