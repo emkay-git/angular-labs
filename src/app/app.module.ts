@@ -6,6 +6,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { NonLoaderComponent } from './non-loader/non-loader.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from './helper.service';
+import { Poller } from './poller.service';
 
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [HelperService],
+  providers: [HelperService, Poller],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,9 @@
-I am loader
+I Poll Data! :)
+<br>
+<div *ngIf="!stopPoll; else complete" style="text-align: center;">
+    <img src="../../assets/loader.gif" width=100px height="100px">
+</div>
+
+<ng-template #complete>
+    <div style="text-align: center">Polling Completed!!</div>
+</ng-template>

@@ -1,40 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HelperService } from '../helper.service';
-import { interval, Subject, Observable } from 'rxjs';
-import { map, tap, mergeMap, startWith, takeUntil } from 'rxjs/operators';
+import { Subscription, Subject, throwError, of } from 'rxjs';
+import { Poller } from '../poller.service';
+import { takeUntil, take, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.css']
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent implements OnInit, OnDestroy {
 
-  constructor(private _helperService: HelperService) { }
+  constructor(private _helperService: HelperService, private _pollerService: Poller) { }
   count = 0;
-  notifier$: Subject<any>;
+  sub: Subscription;
+  destroyer$: Subject<any> = new Subject();
+  stopPoll: boolean = false;
+
   ngOnInit() {
+    const func = x => this.pollingEvaluation(x);
+    const pollingObservable = this._helperService.getDummyData();
 
-    this.notifier$ = this.poller$(this.pollingEvaluation.bind(this), this._helperService.getDummyData());
-
-  }
-
-
-  poller$(evaluateFunc: Function, myObs$: Observable<any>) {
-    const notifier$ = new Subject();
-    interval(5000).pipe(
-      startWith(0),
-      mergeMap(_ => myObs$),
-      tap((val) => evaluateFunc(val)),
-      takeUntil(notifier$)
+    this.sub = this._pollerService.poller$(pollingObservable, func).pipe(
+      catchError((error) => { console.log(error); return 'error'; })
     ).subscribe();
-    return notifier$;
+
   }
 
-  pollingEvaluation(data: any) {
-    if (this.count++ > 6) {
-      this.notifier$.complete();
+
+
+  pollingEvaluation(data) {
+    if (this.count++ > 5) {
+      this.stopPoll = true;
+      return true;
     }
+  }
+
+  ngOnDestroy() {
+    if (this.sub) { this.sub.unsubscribe(); }
   }
 
 }
