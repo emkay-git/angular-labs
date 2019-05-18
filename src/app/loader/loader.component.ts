@@ -12,14 +12,14 @@ import { takeUntil, take, catchError } from 'rxjs/operators';
 export class LoaderComponent implements OnInit, OnDestroy {
 
   constructor(private _helperService: HelperService, private _pollerService: Poller) { }
-  count = 0;
+  count = 1;
   sub: Subscription;
   destroyer$: Subject<any> = new Subject();
   stopPoll: boolean = false;
 
   ngOnInit() {
-    const func = x => this.pollingEvaluation(x);
-    const pollingObservable = this._helperService.getDummyData();
+    const func = x => this.pollingEvaluation(x); // truth function reference
+    const pollingObservable = this._helperService.getDummyData(); // api endpoint observable
 
     this.sub = this._pollerService.poller$(pollingObservable, func).pipe(
       catchError((error) => { console.log(error); return 'error'; })
@@ -28,7 +28,7 @@ export class LoaderComponent implements OnInit, OnDestroy {
   }
 
 
-
+  // it's our truth function which returns true when API has been called 6 times.
   pollingEvaluation(data) {
     if (this.count++ > 5) {
       this.stopPoll = true;
@@ -36,6 +36,7 @@ export class LoaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  // handling leaks on component destroy;
   ngOnDestroy() {
     if (this.sub) { this.sub.unsubscribe(); }
   }
