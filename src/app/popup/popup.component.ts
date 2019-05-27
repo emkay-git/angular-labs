@@ -1,6 +1,19 @@
-import { Component, OnInit, Input, ViewChild, TemplateRef, OnChanges, ViewContainerRef } from '@angular/core';
+import {
+  Component, OnInit, Input, ViewChild, TemplateRef, OnChanges,
+  ViewContainerRef, Output, EventEmitter, SimpleChanges
+} from '@angular/core';
 
 declare var jQuery: any;
+
+export interface ButtonConfig {
+  button1: Button;
+  button2?: Button;
+}
+
+interface Button {
+  buttonType: string;
+  buttonName: string;
+}
 
 @Component({
   selector: 'app-popup',
@@ -11,23 +24,46 @@ export class PopupComponent implements OnInit, OnChanges {
 
   constructor() { }
 
+
   @ViewChild('body', { read: ViewContainerRef }) vc: ViewContainerRef;
   @Input('body') body: TemplateRef<any>;
+  @Input() buttonConfig: ButtonConfig;
   @Input() showPopup: boolean = false;
+  @Output('popup-events') popupEvents: EventEmitter<any> = new EventEmitter<any>();
+
+  modalId: string = '';
 
   ngOnInit() {
-    if (this.showPopup) { this.openPopup(); }
-  }
+    // Each modal should hahve a unique Id for it to work.
+    this.modalId = Math.random().toString(35).substring(7);
 
-  ngOnChanges() {
-    if (this.showPopup) {
-      this.vc.insert(this.body.createEmbeddedView(null));
-      this.openPopup();
-
+    if (!this.buttonConfig) {
+      throw new Error('You must provide atleast one Button');
     }
   }
 
-  openPopup() {
-    jQuery('#myModal').modal('show');
+  ngOnChanges() {
+    if (this.modalId) {
+      if (this.showPopup) {
+        if (this.vc) {
+          this.vc.clear();
+          this.vc.insert(this.body.createEmbeddedView(null));
+          jQuery('#' + this.modalId).modal('show');
+
+        }
+      } else {
+        jQuery('#' + this.modalId).modal('hide');
+      }
+    }
+  }
+
+
+  closePopup(button?: Button) {
+
+    this.popupEvents.emit({
+      'eventType': 'popup-close',
+      'buttonType': button ? button.buttonType : 'none'
+    });
+
   }
 }

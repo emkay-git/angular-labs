@@ -4,3 +4,14 @@
     display: flex;
     justify-content: center;
 }
+
+.box {
+    border: 5px solid black;
+    height: 500px;
+    width: auto;
+    margin: 20px;
+}
+
+button {
+    margin: 10px;
+}

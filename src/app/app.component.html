@@ -1,11 +1,6 @@
-<app-popup [body]="customBody" [showPopup]="this._popupService.openPopup"></app-popup>
-
-
-
-<div class="center-button">
-    <button (click)="this._popupService.openPopup = true" class="btn btn-primary">Open Modal!!</button>
+<button class="btn btn-primary" routerLink="shared">Shared Popups Screen</button>
+<button class="btn btn-primary" routerLink="non-shared">Non Shared Popups Screen</button>
+<div class="box">
+    <router-outlet>
+    </router-outlet>
 </div>
-
-<ng-template #customBody>
-    <span (click)="test()">I am the body....</span>
-</ng-template>

@@ -1,0 +1,8 @@
+<div class="container">
+  <app-comp1>
+  </app-comp1>
+  <app-comp2></app-comp2>
+</div>
+
+<app-popup (popup-events)="this.popupService.popupEvent($event)" [showPopup]="this.popupService.isPopupVisible"
+  [buttonConfig]="this.popupService.buttonConfig" [body]="this.popupService.body"></app-popup>
