@@ -22,7 +22,9 @@ interface Button {
 })
 export class PopupComponent implements OnInit, OnChanges {
 
-  constructor() { }
+  constructor() {
+
+  }
 
 
   @ViewChild('body', { read: ViewContainerRef }) vc: ViewContainerRef;
@@ -34,12 +36,17 @@ export class PopupComponent implements OnInit, OnChanges {
   modalId: string = '';
 
   ngOnInit() {
+
+    this.modalId = 'a' + Math.random().toString(35).substring(7);
+
     // Each modal should hahve a unique Id for it to work.
-    this.modalId = Math.random().toString(35).substring(7);
+
 
     if (!this.buttonConfig) {
       throw new Error('You must provide atleast one Button');
     }
+
+
   }
 
   ngOnChanges() {
@@ -64,6 +71,13 @@ export class PopupComponent implements OnInit, OnChanges {
       'eventType': 'popup-close',
       'buttonType': button ? button.buttonType : 'none'
     });
+
+  }
+
+  ngAfterViewInit() {
+    jQuery('#' + this.modalId).on('hidden.bs.modal', _ => {
+      this.popupEvents.next('POPUP_CLOSED_AFTER_TRANSITION');
+    })
 
   }
 }

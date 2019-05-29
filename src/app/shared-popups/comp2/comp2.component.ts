@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { PopupService } from 'src/app/popup/popup.service';
-import { interval } from 'rxjs';
-import { startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-comp2',
@@ -14,8 +12,6 @@ export class Comp2Component implements OnInit {
   constructor(private _popupService: PopupService) { }
 
   ngOnInit() {
-    // this.openPopup();
-    // interval(12000).pipe(startWith(0)).subscribe(_ => this.openPopup());
   }
 
   openPopup() {
@@ -25,8 +21,7 @@ export class Comp2Component implements OnInit {
         'buttonType': 'close'
       }
     }).subscribe((val) => {
-      console.log('2');
-      if (val.buttonType == 'close') { this._popupService.closePopup(); }
+      if (val['buttonType'] == 'close') { this._popupService.closePopup(); }
     });
   }
 }
