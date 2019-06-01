@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" [id]="modalId">Modal title</h5>
+        <h5 class="modal-title" [id]="modalId">{{title}}</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
@@ -11,10 +11,10 @@
       <div class="modal-body">
         <ng-template #body></ng-template>
       </div>
-      <div *ngIf="buttonConfig" class="modal-footer">
+      <div class="modal-footer">
         <button (click)="closePopup(buttonConfig.button1)" type="button"
           class="btn btn-secondary">{{buttonConfig.button1.buttonName}}</button>
-        <button *ngIf="buttonConfig?.button2" (click)="closePopup(buttonConfig.button2)" type="button"
+        <button *ngIf="buttonConfig.button2" (click)="closePopup(buttonConfig.button2)" type="button"
           class="btn btn-primary">{{buttonConfig.button2.buttonName}}</button>
       </div>
     </div>

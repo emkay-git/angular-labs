@@ -1,0 +1,48 @@
+<div class="popup-form">
+  <h2>Fill the details to customize your popup</h2>
+  <div class="form-group">
+    <label for="usr">Popup Title</label>
+    <input type="text" [(ngModel)]="title" class="form-control" id="usr">
+  </div>
+
+
+  <div class="form-group">
+    <label for="usr">First Button Name:</label>
+    <input type="text" [(ngModel)]="firstButtonName" class="form-control" id="usr">
+  </div>
+
+  <div class="form-group">
+    <label for="usr">Second Button Name:</label>
+    <input type="text" [(ngModel)]="secondButtonName" class="form-control" id="usr">
+  </div>
+
+  <div class="form-group">
+    <label for="usr">Modal Content (You can use HTML)</label>
+    <textarea type="text" [(ngModel)]="content" class="form-control" id="usr"></textarea>
+  </div>
+
+  <button class="btn btn-primary" (click)="openDynamicPopup()">I am a dynamic Popup. Open Me!</button>
+  <button class="btn btn-primary ml-4" (click)="openHardCodedPopup()">I am a Hardcoded Popup. Open Me!</button>
+  <button class="btn btn-primary ml-4" (click)="openCascadedPopup()">Cascade Popup 1 and 2</button>
+</div>
+
+
+
+
+<app-popup [title]="title" [popupBody]="body" [buttonConfig]="buttonConfig" [showPopup]="showDynamicPopup"
+  (popup-events)="popupEventsForDynamicPopup($event)">
+</app-popup>
+
+
+<!--Hard coded popup-->
+<app-popup [title]="'Hardcoded Title'" [popupBody]="body2" [buttonConfig]="buttonConfig2"
+  [showPopup]="showHardCodedPopup" (popup-events)="popupEventsForHardCoded($event)">
+</app-popup>
+
+<ng-template #body>
+  <div [innerHtml]="content"></div>
+</ng-template>
+
+<ng-template #body2>
+  I am Hardcoded text. I have only one button.
+</ng-template>

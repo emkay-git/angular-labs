@@ -1,9 +1,0 @@
-<button class="btn btn-primary" (click)="openPopup()">Popup 1</button>
-
-<app-popup (popup-events)="popupEvents($event)" [showPopup]="this.showPopup" [buttonConfig]="this.buttonConfig"
-  [body]="popupBody"></app-popup>
-
-
-<ng-template #popupBody>
-  <span> {{message}}</span>
-</ng-template>

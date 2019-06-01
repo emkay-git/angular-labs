@@ -25,3 +25,6 @@ export class Comp2Component implements OnInit {
     });
   }
 }
+
+
+

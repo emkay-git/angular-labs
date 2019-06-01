@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NonSharedPopupsComponent } from './non-shared-popups.component';
+import { ReusablePopupComponent } from './reusable-popup.component';
 
-describe('NonSharedPopupsComponent', () => {
-  let component: NonSharedPopupsComponent;
-  let fixture: ComponentFixture<NonSharedPopupsComponent>;
+describe('ReusablePopupComponent', () => {
+  let component: ReusablePopupComponent;
+  let fixture: ComponentFixture<ReusablePopupComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NonSharedPopupsComponent ]
+      declarations: [ ReusablePopupComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NonSharedPopupsComponent);
+    fixture = TestBed.createComponent(ReusablePopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
