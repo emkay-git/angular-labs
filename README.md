@@ -1,18 +1,3 @@
-<style>
-.numberCircle {
-  border-radius: 50%; 
-  behavior: url(PIE.htc); 
-  /* remove if you don't care about IE8 */
-  width: 36px; 
-  height: 36px; 
-  padding: 8px; 
-  background: #fff; 
-  border: 2px solid #666; 
-  color: #666; 
-  text-align: center; 
-  font: 32px Arial, sans-serif; 
-}
-</style>
 # Resuable Angular Modal
 In this post, I will turn a bootstrap modal into an Angular modal. So let's get started.
 
@@ -292,7 +277,7 @@ styles based on whether modal is shown or hidden. It's not very neat, but it's n
 
 ```
 
-### Wrap up
+### The End!
 
 That's all it takes to create a nice modal which can be reused within your components. It's not the
 most sophisticated version of modal I could come up with, but it's built the right amout. 
