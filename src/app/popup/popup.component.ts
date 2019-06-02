@@ -1,9 +1,16 @@
 import {
   Component, OnInit, Input, ViewChild, TemplateRef, OnChanges,
-  ViewContainerRef, Output, EventEmitter, AfterViewInit
+  ViewContainerRef, Output, EventEmitter
 } from '@angular/core';
 
-declare var jQuery: any;
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
+
 
 export interface ButtonConfig {
   button1: Button;
@@ -34,9 +41,25 @@ interface Button {
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.css']
+  styleUrls: ['./popup.component.css'],
+  animations: [
+    trigger('modalAnimate', [
+      state('close', style({
+        top: '-100%',
+        opacity: 0
+      })),
+      state('open', style({
+        top: '5%',
+        opacity: 1
+      })),
+      transition('close => open , open => close', [
+        animate('300ms 300ms ease')
+      ])
+    ]
+    )
+  ]
 })
-export class PopupComponent implements OnInit, OnChanges, AfterViewInit {
+export class PopupComponent implements OnInit, OnChanges {
 
 
   @Input() title: string;
@@ -49,7 +72,6 @@ export class PopupComponent implements OnInit, OnChanges, AfterViewInit {
   @ViewChild('body', { read: ViewContainerRef }) vc: ViewContainerRef;
 
   modalId: string = '';
-
   constructor() { }
 
   ngOnInit() {
@@ -82,11 +104,9 @@ export class PopupComponent implements OnInit, OnChanges, AfterViewInit {
         if (this.vc) {
           this.vc.clear();
           this.vc.insert(this.body.createEmbeddedView(null));
-          jQuery('#' + this.modalId).modal('show');
-
         }
       } else {
-        jQuery('#' + this.modalId).modal('hide');
+        this.popupEvents.emit('POPUP_CLOSED_AFTER_TRANSITION');
       }
     }
   }
@@ -96,10 +116,5 @@ export class PopupComponent implements OnInit, OnChanges, AfterViewInit {
     this.popupEvents.emit(button.buttonType);
   }
 
-  /** It triggers an event when modal has completed the close transaction. */
-  ngAfterViewInit() {
-    jQuery('#' + this.modalId).on('hidden.bs.modal', _ => {
-      this.popupEvents.emit('POPUP_CLOSED_AFTER_TRANSITION');
-    });
-  }
 }
+
