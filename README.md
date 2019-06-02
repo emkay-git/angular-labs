@@ -28,6 +28,15 @@ Each Lab will be a seperate branch on git. To access a Lab, you need to switch t
    * Different types of subjects
    * ReplaySubject, AsyncSubject, BehavourSubject and Subject.
 
+
+### Lab 7 - Reusable Angular Modal
+* Branch name - lab7
+* In this lab, I created Resuable Angular Modal and wrote an article on the same explaining how it works and implemented.
+  * You can find the article [here](https://github.com/emkay-git/angular-labs/blob/lab7/README.md).
+  * Stackblitz link to play with [here](https://stackblitz.com/github/emkay-git/angular-labs/tree/lab7)
+  * You can find the source code [here](https://github.com/emkay-git/angular-labs/tree/lab7) and on above stackblitz link as well.
+
+
 ### Lab 8 - Polling an API
 * Branch name - lab8
 * In this lab, I will create a api endpoint polling mechanism.
