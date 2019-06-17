@@ -1,6 +1,7 @@
 import { Injectable, TemplateRef } from "@angular/core";
-import { Subject } from "rxjs";
+import { Subject, from } from "rxjs";
 import { ButtonConfig } from "./popup.component";
+import { mergeMap, reduce, map, toArray } from "rxjs/operators";
 
 @Injectable()
 export class PopupService {
@@ -49,15 +50,15 @@ export class PopupService {
 
     closePopup() {
         this.isPopupVisible = false;
-        this.body = null;
-        this.buttonConfig = null;
         this._popupRequest[0]['subject'].complete();
     }
 
     /** If there is any available popup request it will open it. */
     private openNextPopup() {
         this._popupRequest = this._popupRequest.slice(1);
-        if (this._popupRequest.length > 0) { this.openCurrentPopup(this._popupRequest[0].body, this._popupRequest[0].buttonConfig); }
+        if (this._popupRequest.length > 0) {
+            this.openCurrentPopup(this._popupRequest[0].body, this._popupRequest[0].buttonConfig);
+        }
     }
 
     /** It opens the current popup */
@@ -66,7 +67,6 @@ export class PopupService {
         this.body = body;
         this.isPopupVisible = true;
     }
-
 
 
 }

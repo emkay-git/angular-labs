@@ -14,7 +14,7 @@ import { ReusablePopupComponent } from './reusable-popup/reusable-popup.componen
 
 const routes: Routes = [
   { path: '', redirectTo: 'reusable', pathMatch: 'full' },
-  // { path: 'shared', component: SharedPopupsComponent },
+  { path: 'shared', component: SharedPopupsComponent },
   { path: 'reusable', component: ReusablePopupComponent }
 ];
 

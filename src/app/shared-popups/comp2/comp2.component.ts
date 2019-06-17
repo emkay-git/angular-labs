@@ -21,7 +21,7 @@ export class Comp2Component implements OnInit {
         'buttonType': 'close'
       }
     }).subscribe((val) => {
-      if (val['buttonType'] == 'close') { this._popupService.closePopup(); }
+      if (val == 'close') { this._popupService.closePopup(); }
     });
   }
 }

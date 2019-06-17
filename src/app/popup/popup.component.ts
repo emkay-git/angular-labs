@@ -10,7 +10,8 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 export interface ButtonConfig {
   button1: Button;
@@ -106,7 +107,8 @@ export class PopupComponent implements OnInit, OnChanges {
           this.vc.insert(this.body.createEmbeddedView(null));
         }
       } else {
-        this.popupEvents.emit('POPUP_CLOSED_AFTER_TRANSITION');
+        of(1).pipe(delay(500)).subscribe(_ => this.popupEvents.emit('POPUP_CLOSED_AFTER_TRANSITION'));
+
       }
     }
   }
