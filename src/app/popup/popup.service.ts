@@ -21,18 +21,20 @@ export class PopupService {
             'buttonType': 'test'
         }
     };
+    message: string;
 
     /** Handles showing popup and stores data for following popups */
-    showPopup(body: TemplateRef<any>, buttonConfig: ButtonConfig) {
+    showPopup(buttonConfig: ButtonConfig, message?: string, body?: TemplateRef<any>, ) {
         const popupSubject = new Subject();
 
         if (this._popupRequest.length == 0) {
-            this.openCurrentPopup(body, buttonConfig);
+            this.openCurrentPopup(body, buttonConfig, message);
         }
         this._popupRequest.push({
             'body': body,
             'buttonConfig': buttonConfig,
-            'subject': popupSubject
+            'subject': popupSubject,
+            'message': message
         });
 
         return popupSubject.asObservable();
@@ -57,15 +59,17 @@ export class PopupService {
     private openNextPopup() {
         this._popupRequest = this._popupRequest.slice(1);
         if (this._popupRequest.length > 0) {
-            this.openCurrentPopup(this._popupRequest[0].body, this._popupRequest[0].buttonConfig);
+            this.openCurrentPopup(this._popupRequest[0].body, this._popupRequest[0].buttonConfig, this._popupRequest[0].message);
         }
     }
 
     /** It opens the current popup */
-    private openCurrentPopup(body, buttonConfig) {
+    private openCurrentPopup(body, buttonConfig, message) {
         this.buttonConfig = buttonConfig ? buttonConfig : this.buttonConfig;
         this.body = body;
+        this.message = message;
         this.isPopupVisible = true;
+
     }
 
 

@@ -62,7 +62,7 @@ interface Button {
 })
 export class PopupComponent implements OnInit, OnChanges {
 
-
+  @Input() message: string;
   @Input() title: string;
   @Input('popupBody') body: TemplateRef<any>;
   @Input() buttonConfig: ButtonConfig;
@@ -104,7 +104,7 @@ export class PopupComponent implements OnInit, OnChanges {
         if (!(this.buttonConfig && Object.keys(this.buttonConfig).length > 0)) { throw new Error("Provide atleast one button"); }
         if (this.vc) {
           this.vc.clear();
-          this.vc.insert(this.body.createEmbeddedView(null));
+          if (this.body) this.vc.insert(this.body.createEmbeddedView(null));
         }
       } else {
         of(1).pipe(delay(500)).subscribe(_ => this.popupEvents.emit('POPUP_CLOSED_AFTER_TRANSITION'));

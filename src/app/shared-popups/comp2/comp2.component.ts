@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { PopupService } from '../../popup/popup.service';
+import { Component, OnInit } from '@angular/core';
+import { APIService } from '../api.service';
 
 @Component({
   selector: 'app-comp2',
@@ -8,21 +8,12 @@ import { PopupService } from '../../popup/popup.service';
 })
 export class Comp2Component implements OnInit {
 
-  @ViewChild('body', { read: TemplateRef }) body: TemplateRef<any>;
-  constructor(private _popupService: PopupService) { }
+  constructor(private _apiService: APIService) { }
 
-  ngOnInit() {
-  }
 
+  ngOnInit() { }
   openPopup() {
-    this._popupService.showPopup(this.body, {
-      'button1': {
-        'buttonName': 'Shared Popup 2',
-        'buttonType': 'close'
-      }
-    }).subscribe((val) => {
-      if (val == 'close') { this._popupService.closePopup(); }
-    });
+    this._apiService.serviceComp2().subscribe();
   }
 }
 

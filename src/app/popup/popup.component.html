@@ -1,19 +1,18 @@
-<div [@modalAnimate]="this.showPopup ? 'open':'close'" class="modal fade {{this.showPopup?'show':''}}"
-  [ngStyle]="{'display':!this.showPopup?'none':'block'}" [id]="modalId" tabindex="-1" data-backdrop="static"
-  data-keyboard="false" role="dialog" aria-hidden="true">
+<div [@modalAnimate]="this.showPopup ? 'open':'close'" class="modal fade {{this.showPopup?'show':''}}" [ngStyle]="{'display':!this.showPopup?'none':'block'}"
+  [id]="modalId" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" [id]="modalId">{{title}}</h5>
       </div>
       <div class="modal-body">
+        {{message}}
         <ng-template #body></ng-template>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="closePopup(buttonConfig.button1)">
           {{buttonConfig.button1.buttonName}}</button>
-        <button *ngIf="buttonConfig.button2" (click)="closePopup(buttonConfig.button2)" type="button"
-          class="btn btn-primary">{{buttonConfig.button2.buttonName}}</button>
+        <button *ngIf="buttonConfig.button2" (click)="closePopup(buttonConfig.button2)" type="button" class="btn btn-primary">{{buttonConfig.button2.buttonName}}</button>
       </div>
     </div>
   </div>

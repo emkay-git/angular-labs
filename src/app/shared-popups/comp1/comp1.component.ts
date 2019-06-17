@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { PopupService } from '../../popup/popup.service';
+import { Component, OnInit } from '@angular/core';
+import { APIService } from '../api.service';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-comp1',
@@ -8,34 +9,15 @@ import { PopupService } from '../../popup/popup.service';
 })
 export class Comp1Component implements OnInit {
 
-  message = 'I am from shared popup 1';
-  @ViewChild('body', { read: TemplateRef }) body: TemplateRef<any>;
-  @ViewChild('body2', { read: TemplateRef }) body2: TemplateRef<any>;
+  constructor(private apiService: APIService) { }
 
-  constructor(private _popupService: PopupService) { }
-
-
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 
   openPopup() {
+    this.apiService.serviceComp1().pipe(
+      mergeMap(_ => this.apiService.service2Comp1())
+    ).subscribe((data) => console.log(data));
 
-    this._popupService.showPopup(this.body, {
-      'button1': {
-        'buttonName': 'Shared Popup 1',
-        'buttonType': 'close'
-      }
-    }).subscribe(_ => {
-      this._popupService.closePopup();
-
-      this._popupService.showPopup(this.body2, {
-        'button1': {
-          'buttonName': 'Another',
-          'buttonType': 'another'
-        }
-      }).subscribe((data) => { this._popupService.closePopup(); });
-    });
   }
 
 }

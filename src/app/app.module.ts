@@ -10,6 +10,7 @@ import { SharedPopupsComponent } from './shared-popups/shared-popups.component';
 import { Comp1Component } from './shared-popups/comp1/comp1.component';
 import { Comp2Component } from './shared-popups/comp2/comp2.component';
 import { ReusablePopupComponent } from './reusable-popup/reusable-popup.component';
+import { APIService } from './shared-popups/api.service';
 
 
 const routes: Routes = [
@@ -34,7 +35,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [PopupService],
+  providers: [PopupService, APIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

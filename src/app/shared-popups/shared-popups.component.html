@@ -4,5 +4,5 @@
   <app-comp2></app-comp2>
 </div>
 
-<app-popup (popup-events)="this.popupService.popupEvent($event)" [showPopup]="this.popupService.isPopupVisible"
+<app-popup (popup-events)="this.popupService.popupEvent($event)" [message]="this.popupService.message" [showPopup]="this.popupService.isPopupVisible"
   [buttonConfig]="this.popupService.buttonConfig" [popupBody]="this.popupService.body"></app-popup>
