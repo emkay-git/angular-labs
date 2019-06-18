@@ -46,7 +46,7 @@ stream of data etc.
 it on local as <br> `git clone https://github.com/emkay-git/angular-labs.git && git checkout lab8`
 
 </div>
-<div class="col-md-4" style="margin-top:60px">
+<div class="col-md-4" style="margin-top:60px; text-align:center">
   <a href="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif" target="_blank"> <img height="150px" src="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Polling an API for required response</p></em>
 </div>
