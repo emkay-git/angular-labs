@@ -44,7 +44,7 @@ stream of data etc.
 it on local as <br> `git clone https://github.com/emkay-git/angular-labs.git && git checkout lab8`
 
 <div style="text-align:center">
-  <a href="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif" target="_blank"> <img height="150px" src="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif"/></a>
+  <a href="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif" target="_blank"> <img  src="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Polling an API for required response</p></em>
 </div>
 
@@ -72,7 +72,7 @@ it on local as
 
 
 <div style="text-align:center">
-  <a href="./lab-images/modal.gif" target=_blank> <img height="150px" src="./lab-images/modal.gif"/></a>
+  <a href="./lab-images/modal.gif" target=_blank> <img  src="./lab-images/modal.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Resuable Modal for each component</p></em>
 </div>
 
@@ -93,7 +93,7 @@ it on local as
 
 
 <div class="col-md-4" style="text-align:center">
-  <a href="./lab-images/shared-modal.gif" target="_blank"> <img height="150px" src="./lab-images/shared-modal.gif"/></a>
+  <a href="./lab-images/shared-modal.gif" target="_blank"> <img  src="./lab-images/shared-modal.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Centralized message popup for API fail</p></em>
 </div>
 
