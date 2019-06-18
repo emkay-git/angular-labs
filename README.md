@@ -1,6 +1,6 @@
 # AngularLabs
 
-Angular Labs will contain small angular projects or POC covering wide variety of anuglar topics, RxJS, component development and best practices in front end development. 
+Angular Labs will contain small angular projects or POC covering wide varieties of anuglar topics, component development , RxJS, and best practices in front end development. 
 
 Each Lab will be a seperate branch on git. You can access any lab through it's **branch name** as `git checkout <branch_name>`.
 
