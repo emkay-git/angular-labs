@@ -29,13 +29,11 @@ Each Lab will be a seperate branch on git. You can access any lab through it's *
    * ReplaySubject, AsyncSubject, BehavourSubject and Subject. -->
 
 <!-- <script  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script> -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
 ---
 
-<div class="container">
-<div class="row">
-<div class="col-md-8">
+
 
 ## Polling an API
 * In this lab, I created an API endpoint polling mechanism using RxJS.
@@ -45,13 +43,11 @@ stream of data etc.
 * Source code is in branch [lab8](https://github.com/emkay-git/angular-labs/tree/lab8) or download
 it on local as <br> `git clone https://github.com/emkay-git/angular-labs.git && git checkout lab8`
 
-</div>
-<div class="col-md-4" style="margin-top:60px; text-align:center">
+<div style="text-align:center">
   <a href="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif" target="_blank"> <img height="150px" src="https://cdn-images-1.medium.com/max/720/1*Kd0YoDspyXKe93ZdEsqRGA.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Polling an API for required response</p></em>
 </div>
-</div>
-</div>
+
 
 ---
 
@@ -63,9 +59,7 @@ Now there can be two ways one can use modals in angular,
   * Centralized modal managed by service available, to all components. This will be evident in Part II of the series.
 
 #### Part I - Resuable Angular Modal 
-<div class="container">
-<div class="row">
-<div class="col-md-8">
+
 
 * In first part, I created a general purpose resuable angular modal with the capibility of 
 dynamic content. It's made on top bootstrap modal but all the control over modal is done via Angular.
@@ -76,12 +70,10 @@ it on local as
 
 `git clone https://github.com/emkay-git/angular-labs.git && git checkout lab7`
 
-</div>
-<div class="col-md-4" style="margin-top:10px">
+
+<div style="text-align:center">
   <a href="./lab-images/modal.gif" target=_blank> <img height="150px" src="./lab-images/modal.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Resuable Modal for each component</p></em>
-</div>
-</div>
 </div>
 
 
@@ -89,10 +81,6 @@ it on local as
 
 
 #### Part II - Shared Angular Modal
-
-<div class="container">
-<div class="row">
-<div class="col-md-8">
 
 * In this part, I created a shareable Angular Modal with the help of which you bind the angular modal once in the template and then
 control the behaviour using Modal service in any other component wanting to use modal. It's preferrable when you want to create a centralized mechanism for displaying messages. It's made on top of the previous series.
@@ -102,13 +90,11 @@ see demo on [stackblitz](https://stackblitz.com/github/emkay-git/angular-labs/tr
 it on local as
 
 `git clone https://github.com/emkay-git/angular-labs.git && git checkout lab7`
-</div>
 
-<div class="col-md-4" style="margin-top:10px">
+
+<div class="col-md-4" style="text-align:center">
   <a href="./lab-images/shared-modal.gif" target="_blank"> <img height="150px" src="./lab-images/shared-modal.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Centralized message popup for API fail</p></em>
-</div>
-</div>
 </div>
 
 
