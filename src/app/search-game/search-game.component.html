@@ -1,0 +1,15 @@
+<div class="container" style="margin-top:100px">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label for="searchWord">Search Word</label>
+        <input type="text" class="form-control" id="searchWord" aria-describedby="searchWord" placeholder="What's your word?">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let word of allWords" class="col-md-4">
+      {{word}}
+    </div>
+  </div>
+</div>
