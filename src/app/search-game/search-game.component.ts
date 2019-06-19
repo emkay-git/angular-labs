@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject, from, of } from 'rxjs';
-import { distinctUntilChanged, debounceTime, mergeMap, filter, toArray, tap, auditTime, throttleTime, catchError } from 'rxjs/operators';
+import { Subject, from, throwError } from 'rxjs';
+import { distinctUntilChanged, debounceTime, mergeMap, filter, toArray, tap, auditTime, throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-game',
@@ -32,11 +32,12 @@ export class SearchGameComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     this.showWords = this.allWords;
     let wordSubject$ = this.wordSubject.asObservable();
 
     wordSubject$.pipe(
-      auditTime(2000),
+      debounceTime(1000),
       distinctUntilChanged(),
       tap(keyword => console.log(keyword)),
       mergeMap(keyword => from(this.allWords).pipe(
