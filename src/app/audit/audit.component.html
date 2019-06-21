@@ -1,0 +1,24 @@
+<h1>auditTime()</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-dark m-3" (click)="auditMe()">Send {{value}} to audit</button>
+      <hr>
+      <b>Time since the trigger - </b>{{this.time}}s
+    </div>
+
+    <div class="col-md-8">
+      <div style="text-align:center" *ngFor="let stackItem of stack">
+        <span><b> Audited - {{stackItem}}</b></span>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      Timer gets triggered only when operator is idle, i.e. when timer is not running. As soon as it triggers,
+      it waits for timeout and emits the latest value. It doesn't reset the timer like debounce time and emits after
+      2s.
+    </div>
+  </div>
+</div>

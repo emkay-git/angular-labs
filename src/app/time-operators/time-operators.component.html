@@ -1,0 +1,13 @@
+<button class="btn btn-info m-5" (click)="showTimeOperator('debounce')">debounceTime()</button>
+<button class="btn btn-info m-5" (click)="showTimeOperator('throttle')">throttleTime()</button>
+<button class="btn btn-info m-5" (click)="showTimeOperator('audit')">auditTime()</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 box">
+      <app-debounce *ngIf="this.operatorName == 'debounce'"></app-debounce>
+      <app-throttle *ngIf="this.operatorName == 'throttle'"></app-throttle>
+      <app-audit *ngIf="this.operatorName == 'audit'"></app-audit>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<h1>throttleTime()</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-dark m-3" (click)="throttleMe()">Send {{value}} to throttle</button>
+      <hr>
+      <b>Time since the trigger - </b>{{this.time}}s
+    </div>
+
+    <div class="col-md-8">
+      <div style="text-align:center" *ngFor="let stackItem of stack">
+        <span><b> Throttled - {{stackItem}}</b></span>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      Timer gets triggered only when operator is idle, i.e. when timer is not running. As soon as value is received
+      by the opretor, timer starts and value is emitted immediately. Till the timer timeout whatever value is received
+      by the operator is simply ignored.
+    </div>
+  </div>
+</div>

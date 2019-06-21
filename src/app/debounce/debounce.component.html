@@ -1,0 +1,23 @@
+<h1>debounceTime()</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-dark m-3" (click)="debounceMe()">Send {{value}} to Debounce</button>
+      <hr>
+      <b>Time since the trigger - </b>{{this.time}}s
+    </div>
+
+    <div class="col-md-8">
+      <div style="text-align:center" *ngFor="let stackItem of stack">
+        <span><b> Debounced - {{stackItem}}</b></span>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      Timer gets triggered each time a new value is received by the operator. If operator receives the Value
+      before timeout occurs, it resets the timer. Value will be emitted only after timeout has occured.
+    </div>
+  </div>
+</div>
