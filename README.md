@@ -35,7 +35,7 @@ Each Lab will be a seperate branch on git. You can access any lab through it's *
 
 
 
-## Polling an API
+## RxJS How To?: Polling an API
 * In this lab, I created an API endpoint polling mechanism using RxJS.
 * This may be required for multiple use cases such as showing the spinner till the desired result is received, showing
 stream of data etc.
@@ -96,6 +96,32 @@ it on local as
   <a href="./lab-images/shared-modal.gif" target="_blank"> <img  src="./lab-images/shared-modal.gif"/></a>
   <em ><p style="font-size:10px;text-align:center">Centralized message popup for API fail</p></em>
 </div>
+
+---
+
+
+
+
+## RxJS How To?: Understand difference between *Time operators
+
+* In the next series of RxJS How To?, I am going to explain the difference between three Time related operators,
+   * **auditTime**
+   * **throttleTime** 
+   * **debounceTime**, 
+how they manage an internal state of time and values through interesting diagrams as the one shown below. I will also share some usecases where it's better to use
+one than other.
+
+<div class="col-md-4" style="text-align:center">
+  <a href="./lab-images/sample.png"> <img  src="./lab-images/sample.png"/></a>
+  <em ><p style="font-size:10px;text-align:center">Explaining time operators through balls and arrows</p></em>
+</div>
+
+* You can read about it on [medium](https://medium.com/@mohitkumar_72140/rxjs-how-to-understand-difference-between-time-operators-a89760dfec2d?source=friends_link&sk=0a51b79b12d1cf5cf38d9723f4d0475f) and later see demo on [stackblitz](https://stackblitz.com/github/emkay-git/angular-labs/tree/lab10).
+* Source code is in branch [lab10](https://github.com/emkay-git/angular-labs/tree/lab10) or download it on local as
+
+`git clone https://github.com/emkay-git/angular-labs.git && git checkout lab10`
+
+
 
 
 
